@@ -87,6 +87,8 @@ p { margin: 0; max-width: 66ch; }
 
 .cv-row { display: grid; grid-template-columns: 10em minmax(0, 1fr); gap: 6px 20px; font-size: 15px; }
 .cv-row .when { font-family: var(--font-mono); font-size: 13px; color: var(--muted); padding-top: 2px; font-variant-numeric: tabular-nums; }
+.role-entry { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.role-entry p { color: var(--muted); }
 footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--rule); padding-top: 16px; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
@@ -157,6 +159,14 @@ img { max-width: 100%; }
 
     <section id="teaching">
       <h2>Teaching</h2>
+      <div class="cv-row">
+        <span class="when">Aug 2026 – Present</span>
+        <div class="role-entry">
+          <strong>Teaching Assistant</strong> · Department of Economics, Indiana University Bloomington
+          <p>Held weekly office hours and graded homework for two sections of introductory undergraduate macroeconomics; revised quiz and exam questions for accuracy and proctored all exams.</p>
+        </div>
+      </div>
+      <h3>Study guides</h3>
       <p>Study guides I wrote for tutoring and exam preparation.</p>
       <div class="guides">
         <div class="guide-group">
