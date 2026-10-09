@@ -82,6 +82,9 @@ p { margin: 0; max-width: 66ch; }
 .role-entry { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .role-entry p { color: var(--muted); }
 .plain-list { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 4px; }
+.paper-head { display: flex; justify-content: space-between; align-items: baseline; gap: 6px 24px; flex-wrap: wrap; }
+.paper-head .paper-title { flex: 1 1 22em; min-width: 0; }
+.paper-date { font-family: var(--font-mono); font-size: 13px; color: var(--muted); white-space: nowrap; }
 footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--rule); padding-top: 16px; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
@@ -123,17 +126,17 @@ img { max-width: 100%; }
       <h2>Term Papers</h2>
       <ul class="papers">
         <li class="paper">
-          <p class="paper-title">Family Income and the Gap in Educational Attainment: Evidence from Higher Education</p>
+          <div class="paper-head"><p class="paper-title">Family Income and the Gap in Educational Attainment: Evidence from Higher Education</p><span class="paper-date">April 2026</span></div>
           <p>Used PSID data and MLE regression methods to follow a cohort born from 1993-1997 to estimate the independent effect of family income on children’s educational attainment.</p>
           <div class="paper-links"><a href="https://drive.google.com/file/d/1BAe_zhCLK_6GKckGiUna1b7jrBQkHi08/view">Paper</a></div>
         </li>
         <li class="paper">
-          <p class="paper-title">The Strategy of Protectionism: Game Theory in International Trade</p>
+          <div class="paper-head"><p class="paper-title">The Strategy of Protectionism: Game Theory in International Trade</p><span class="paper-date">December 2025</span></div>
           <p>Applied concepts from game theory to analyze the 2025 Trade War. Three games were considered, including an indefinite repeated prisoner’s dilemma where both countries employ grim trigger and a game with alternating offers to model trade deals made by the U.S. and an Adversary.</p>
           <div class="paper-links"><a href="https://drive.google.com/file/d/1AUKo2Eu_TP14TJl8yQcO7F1hbJayAqdV/view">Paper</a><a href="https://drive.google.com/file/d/1Q8Umn76ZFpv-piWBA95b2eePj9ixC2MV/view">Slides</a></div>
         </li>
         <li class="paper">
-          <p class="paper-title">The Effects of the 2018 Trade War on the Economy: A Review of the Literature</p>
+          <div class="paper-head"><p class="paper-title">The Effects of the 2018 Trade War on the Economy: A Review of the Literature</p><span class="paper-date">May 2025</span></div>
           <p>Conducted an extensive review of 14 research papers on the effects of the 2018 Trade War on welfare, consumption, employment, trade reallocation, investment, imports, and exports.</p>
           <div class="paper-links"><a href="https://drive.google.com/file/d/1X1U3H1gTWqzVm9wfo_WHXkvi45n0e8E0/view">Paper</a><a href="https://drive.google.com/file/d/1xZ8z1iy2RhxV5JP0mC0ffLzGVDq62F86/view">Slides</a></div>
         </li>
