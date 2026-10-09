@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Benjamin Abshire, PhD student in Economics at Indiana University Bloomington. Research, teaching materials, and CV.">
+<title>Benjamin Abshire · Economics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: fixed identity column on the left (name, contact, links), one scrolling column of sections on the right; stacks on phones. */
+:root {
+  --bg: #fbfbf9;
+  --surface: #f1f2ee;
+  --fg: #1d2326;
+  --muted: #5b6468;
+  --rule: #d9dcd6;
+  --accent: #1f5f6b;
+  --accent-soft: #e2edee;
+  --font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121618; --surface: #1a2023; --fg: #e4e7e5; --muted: #9aa4a7;
+    --rule: #2c3437; --accent: #7fbfc9; --accent-soft: #1d3034; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121618; --surface: #1a2023; --fg: #e4e7e5; --muted: #9aa4a7;
+  --rule: #2c3437; --accent: #7fbfc9; --accent-soft: #1d3034; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 16px; line-height: 1.6; }
+a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+.unused { background: var(--accent-soft); color: var(--fg); font-size: 13px; padding: 8px 16px; text-align: center; border-bottom: 1px solid var(--rule); }
+
+.shell { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 64px; max-width: 1120px; margin: 0 auto; padding: 56px 32px 96px; }
+@media (max-width: 860px) { .shell { grid-template-columns: minmax(0, 1fr); gap: 40px; padding: 32px 16px 64px; } }
+
+aside { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 40px); align-self: start; display: flex; flex-direction: column; gap: 20px; }
+@media (max-width: 860px) { aside { position: static; } }
+.portrait { width: 132px; aspect-ratio: 1; max-width: 100%; border-radius: 50%; background: var(--surface); border: 1px solid var(--rule); display: grid; place-items: center; font-family: var(--font-display); font-size: 44px; color: var(--muted); }
+.name { font-family: var(--font-display); font-weight: 500; font-size: 36px; line-height: 1.1; margin: 0; text-wrap: balance; }
+.role { margin: 0; color: var(--muted); font-size: 15px; }
+.contact { display: flex; flex-direction: column; gap: 6px; font-size: 15px; }
+.contact .email { font-family: var(--font-mono); font-size: 14px; user-select: all; }
+.toc { display: flex; flex-direction: column; gap: 2px; border-top: 1px solid var(--rule); padding-top: 16px; }
+.toc a { color: var(--fg); text-decoration: none; font-size: 15px; padding: 3px 0; }
+.toc a:hover { color: var(--accent); }
+@media (max-width: 860px) { .toc { flex-direction: row; flex-wrap: wrap; gap: 4px 18px; } }
+.btn { display: inline-block; align-self: flex-start; border: 1px solid var(--accent); padding: 7px 14px; border-radius: 4px; text-decoration: none; font-weight: 500; font-size: 14px; }
+.btn:hover { background: var(--accent); color: var(--bg); }
+
+main { display: flex; flex-direction: column; gap: 72px; min-width: 0; }
+section { display: flex; flex-direction: column; gap: 20px; scroll-margin-top: 24px; }
+h2 { font-family: var(--font-display); font-weight: 500; font-size: 28px; margin: 0; display: flex; align-items: baseline; gap: 14px; }
+h2::after { content: ""; flex: 1; border-bottom: 1px solid var(--rule); transform: translateY(-6px); }
+h3 { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 8px 0 0; }
+p { margin: 0; max-width: 66ch; }
+.lede { font-family: var(--font-display); font-size: 21px; line-height: 1.5; max-width: 34em; }
+.fields { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.fields li { background: var(--surface); border: 1px solid var(--rule); border-radius: 999px; padding: 3px 12px; font-size: 14px; }
+
+.jmp { border: 1px dashed var(--rule); border-radius: 6px; padding: 20px 22px; display: flex; flex-direction: column; gap: 6px; }
+.jmp .tag { font-family: var(--font-mono); font-size: 12px; color: var(--accent); letter-spacing: 0.04em; text-transform: uppercase; }
+.jmp p { color: var(--muted); font-size: 15px; }
+
+.papers { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; }
+.paper { padding: 18px 0; border-top: 1px solid var(--rule); display: flex; flex-direction: column; gap: 6px; }
+.paper:last-child { border-bottom: 1px solid var(--rule); }
+.paper-title { font-family: var(--font-display); font-size: 20px; font-weight: 500; line-height: 1.3; margin: 0; text-wrap: balance; }
+.paper-meta { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+.paper p { font-size: 15px; color: var(--fg); }
+.paper-links { display: flex; gap: 16px; font-size: 14px; font-weight: 500; }
+
+.guides { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px 40px; }
+.guide-group { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.guide-group h3 { margin: 0; }
+.guide-group ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.4; }
+
+.cv-row { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 6px 20px; font-size: 15px; }
+.cv-row .when { font-family: var(--font-mono); font-size: 13px; color: var(--muted); padding-top: 2px; font-variant-numeric: tabular-nums; }
+footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--rule); padding-top: 16px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+body { margin: 0; }
+img { max-width: 100%; }
+</style>
+</head>
+<body>
+
+
+<div class="shell">
+  <aside>
+    <div class="portrait" aria-label="Photo placeholder">BA</div>
+    <div>
+      <h1 class="name">Benjamin Abshire</h1>
+      <p class="role">PhD student in Economics<br>Indiana University Bloomington</p>
+    </div>
+    <div class="contact">
+      <a class="email" href="mailto:babshire@iu.edu">babshire@iu.edu</a>
+      <a href="https://www.linkedin.com/in/benjamin-abshire/">LinkedIn</a>
+    </div>
+    <a class="btn" href="https://drive.google.com/file/d/1FqRRD2Jeh09geCKRcaY9JBs2qYgqY04X/view">Download CV (PDF)</a>
+    <nav class="toc" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#cv">CV</a>
+    </nav>
+  </aside>
+
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p class="lede">I study how public policy shapes outcomes for individuals and households, and the economic effects of trade wars.</p>
+      <p>I am a PhD student in Economics at Indiana University Bloomington. I hold bachelor's degrees in economics and mathematics from Kent State University.</p>
+      <h3>Fields</h3>
+      <ul class="fields">
+        <li>Poverty &amp; inequality</li>
+        <li>Social welfare programs</li>
+        <li>International trade</li>
+        <li>Health</li>
+        <li>Environmental economics</li>
+      </ul>
+    </section>
+
+    <section id="research">
+      <h2>Research</h2>
+      <div class="jmp">
+        <span class="tag">Job market paper</span>
+        <p>Reserved slot. When the JMP is ready, its title, abstract, and draft link go here, at the top of the page.</p>
+      </div>
+
+      <h3>Working papers</h3>
+      <ul class="papers">
+        <li class="paper">
+          <p class="paper-title">The Strategy of Protectionism: Game Theory in International Trade</p>
+          <span class="paper-meta">Trade · game theory · 2025 trade war</span>
+          <p>Models the 2025 trade war with three games, including an indefinitely repeated prisoner's dilemma with grim-trigger strategies and an alternating-offers bargaining game between the U.S. and an adversary.</p>
+          <div class="paper-links"><a href="https://drive.google.com/file/d/1AUKo2Eu_TP14TJl8yQcO7F1hbJayAqdV/view">Paper</a><a href="https://drive.google.com/file/d/1Q8Umn76ZFpv-piWBA95b2eePj9ixC2MV/view">Slides</a></div>
+        </li>
+        <li class="paper">
+          <p class="paper-title">Family Income and the Gap in Educational Attainment: Evidence from Higher Education</p>
+          <span class="paper-meta">Inequality · PSID · maximum likelihood</span>
+          <p>Follows the PSID cohort born 1993–1997 to estimate the independent effect of family income on children's educational attainment.</p>
+          <div class="paper-links"><a href="https://drive.google.com/file/d/1BAe_zhCLK_6GKckGiUna1b7jrBQkHi08/view">Paper</a></div>
+        </li>
+        <li class="paper">
+          <p class="paper-title">Effects of Ability and Family Circumstances on Earnings Potential</p>
+          <span class="paper-meta">Labor · OLS &amp; IV</span>
+          <p>Uses OLS and instrumental-variable regressions to estimate how ability and growing up with a single mother affect earnings potential.</p>
+          <div class="paper-links"><a href="https://drive.google.com/file/d/1xqFOUoQOAOtK5RYrQ_jSXoGKAzH7HnwW/view">Paper</a></div>
+        </li>
+      </ul>
+
+      <h3>Surveys &amp; policy reviews</h3>
+      <ul class="papers">
+        <li class="paper">
+          <p class="paper-title">The Effects of the 2018 Trade War on the Economy: A Review of the Literature</p>
+          <span class="paper-meta">Literature review · 14 papers</span>
+          <p>Reviews evidence on welfare, consumption, employment, trade reallocation, investment, imports, and exports.</p>
+          <div class="paper-links"><a href="https://drive.google.com/file/d/1X1U3H1gTWqzVm9wfo_WHXkvi45n0e8E0/view">Paper</a><a href="https://drive.google.com/file/d/1xZ8z1iy2RhxV5JP0mC0ffLzGVDq62F86/view">Slides</a></div>
+        </li>
+        <li class="paper">
+          <p class="paper-title">Economic Solutions for a Warming World: Correcting the Negative Externalities of Climate Change</p>
+          <span class="paper-meta">Environmental · policy review</span>
+          <p>Compares climate policies on theory, tradeoffs, and real-world results to identify the most effective ways to cut greenhouse gas emissions.</p>
+          <div class="paper-links"><a href="https://drive.google.com/file/d/1kWKcmSNq0gtmu9babxoXb7XfrPcWR5Hn/view">Paper</a></div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <p>Study guides I wrote for tutoring and exam preparation.</p>
+      <div class="guides">
+        <div class="guide-group">
+          <h3>Macroeconomic Theory (MA)</h3>
+          <ul>
+            <li><a href="https://drive.google.com/file/d/15EdCjZDj3kjG7ILZiiLyS3lqHbMOgG2f/view">Introduction to the Cash-in-Advance Model</a></li>
+            <li><a href="https://drive.google.com/file/d/1qQgJMsfea-wxPUBkO2hR2O4PiFtwqaLR/view">The Consumer's Problem in a Dynamic Model with Government</a></li>
+          </ul>
+        </div>
+        <div class="guide-group">
+          <h3>Optimization</h3>
+          <ul>
+            <li><a href="https://drive.google.com/file/d/11Hfx3GfE_BqBt-93OMWN0d10MN3wxjhO/view">KKT Conditions with Linear Constraints</a></li>
+            <li><a href="https://drive.google.com/file/d/19k4zL5heeFGzjoWpZSeZxCz3x_EC-7Ju/view">Relative Extrema of Multivariable Functions</a></li>
+            <li><a href="https://drive.google.com/file/d/1M1drOxGMhU9MuIv3JdEtY5vBC8TsrX-q/view">Leisure, Consumption, and Labor Supply</a></li>
+          </ul>
+        </div>
+        <div class="guide-group">
+          <h3>Real Analysis</h3>
+          <ul>
+            <li><a href="https://drive.google.com/file/d/1KOL8vXfbH85NvKSkWXOPL1PFTGuuD-T3/view">The Riemann Integral</a></li>
+            <li><a href="https://drive.google.com/file/d/1G2I3fYZf5KIXMXoNwvnvFJFHWtAoINuo/view">Supremum and Infimum</a></li>
+            <li><a href="https://drive.google.com/file/d/1Wtp5JrBufyvnkhYSJvBTiP6wFK9DNRu7/view">Proof of the Chain Rule</a></li>
+            <li><a href="https://drive.google.com/file/d/10RN5_vF3xX4mCzyov6c4ZuElKPhGr8JY/view">Sequences and Their Limits</a></li>
+            <li><a href="https://drive.google.com/file/d/1bnGsrpXcnad28AJvoKRaZFaRsxKZ8R6m/view">Limits</a></li>
+            <li><a href="https://drive.google.com/file/d/1YaQCZgE8MkQuQZin_9xAPT9nbhMNtBI7/view">Proof by Induction</a></li>
+          </ul>
+        </div>
+        <div class="guide-group">
+          <h3>Differential Equations</h3>
+          <ul>
+            <li><a href="https://drive.google.com/file/d/1ed3dwQQP5zYL_rFQ8tBnQV21jcckECwF/view">The Integrating Factor Method</a></li>
+            <li><a href="https://drive.google.com/file/d/1i3cn88pF5kcuYq7Iir_v1ZdF2r2rBhaA/view">Guess and Check for Integrals</a></li>
+          </ul>
+        </div>
+        <div class="guide-group">
+          <h3>Calculus</h3>
+          <ul>
+            <li><a href="https://drive.google.com/file/d/1Qjm9Kg0Cy5xvd06PoTr_Hvitxp6KuV_k/view">The Multivariable Chain Rule</a></li>
+            <li><a href="https://drive.google.com/file/d/1KPj9tzNnfQZZycI_lbE1Srd80d72dflg/view">Volume Between Two Spheres</a></li>
+            <li><a href="https://drive.google.com/file/d/1j9dr39Sb1jP8t4StB2cUMd8QpD6Z-Wz_/view">Multivariable Limits</a></li>
+            <li><a href="https://drive.google.com/file/d/144F2mI6WIaS1JHqPoCP8Ay-o1Ya37T45/view">Partial Derivatives</a></li>
+            <li><a href="https://drive.google.com/file/d/15_f3URJcWfb3u7g1TA0N8sB1q56QO8vk/view">Sequences and Their Limits (Calc II)</a></li>
+            <li><a href="https://drive.google.com/file/d/1sEr8CZcfRhvhHBs7URBUjNxdIx5B3j1l/view">Integration by Substitution</a></li>
+            <li><a href="https://drive.google.com/file/d/1Mp2Y85n7FQNQDy4a94RcyMpbHrKnFq9T/view">Introduction to Integrals</a></li>
+            <li><a href="https://drive.google.com/file/d/1HY_A_BgkFnppztcshFlUjS76NP51WASr/view">Introduction to Limits</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="cv">
+      <h2>CV</h2>
+      <div class="cv-row">
+        <span class="when">Present</span><span>PhD, Economics · Indiana University Bloomington</span>
+        <span class="when">Earlier</span><span>BS, Economics and BS, Mathematics · Kent State University</span>
+      </div>
+      <a class="btn" href="https://drive.google.com/file/d/1FqRRD2Jeh09geCKRcaY9JBs2qYgqY04X/view">Full CV (PDF)</a>
+    </section>
+
+    <footer>Benjamin Abshire · Department of Economics, Indiana University Bloomington</footer>
+  </main>
+</div>
+</body>
+</html>
