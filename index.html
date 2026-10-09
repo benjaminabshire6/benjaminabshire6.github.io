@@ -46,7 +46,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 
 aside { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 40px); align-self: start; display: flex; flex-direction: column; gap: 20px; }
 @media (max-width: 860px) { aside { position: static; } }
-.portrait { width: 132px; aspect-ratio: 1; max-width: 100%; border-radius: 50%; background: var(--surface); border: 1px solid var(--rule); display: grid; place-items: center; font-family: var(--font-display); font-size: 44px; color: var(--muted); }
+.portrait { width: 160px; height: auto; object-fit: cover; aspect-ratio: 1; max-width: 100%; border-radius: 50%; background: var(--surface); border: 1px solid var(--rule); display: grid; place-items: center; font-family: var(--font-display); font-size: 44px; color: var(--muted); }
 .name { font-family: var(--font-display); font-weight: 500; font-size: 36px; line-height: 1.1; margin: 0; text-wrap: balance; }
 .role { margin: 0; color: var(--muted); font-size: 15px; }
 .contact { display: flex; flex-direction: column; gap: 6px; font-size: 15px; }
@@ -99,7 +99,7 @@ img { max-width: 100%; }
 
 <div class="shell">
   <aside>
-    <div class="portrait" aria-label="Photo placeholder">BA</div>
+    <img class="portrait" src="photo.jpg" alt="Benjamin Abshire" width="160" height="160">
     <div>
       <h1 class="name">Benjamin Abshire</h1>
       <p class="role">PhD student in Economics<br>Indiana University Bloomington</p>
